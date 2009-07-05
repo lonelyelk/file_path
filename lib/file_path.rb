@@ -1,6 +1,6 @@
 class FilePath < String
-  # Creates new file path. If path is not given, dirname of current file
-  # is taken
+  # Creates new file path. If <code>path</code> param is not given, dirname of
+  # current file is used
   def initialize(path = nil)
     if path
       replace expand(path)
@@ -44,7 +44,7 @@ class FilePath < String
     end
 
   class << self
-    # Expanded path to current file: File.expand_path(__FILE__)
+    # Path to current file: File.expand_path(__FILE__)
     def current
       new(caller(1)[0].split(":")[0])
     end
