@@ -13,7 +13,7 @@ class FilePath < String
   # Example:
   #   FilePath.new("/somedir")/"other_dir"/"file"     => "/somedir/other_dir/file"
   def /(other)
-    FilePath.new(expand(File.join(self, other)))
+    self.class.new(expand(File.join(self, other)))
   end
 
   # Returns <code>true</code> if file path is a wildcard
@@ -24,7 +24,7 @@ class FilePath < String
   # Returns list of paths selected by wildcard or an array with one specified file
   # if it exists
   def list
-    Dir.glob(self)
+    Dir.glob(self).map{ |p| self.class.new(p)}
   end
 
   # Returns true if wildcard selection includes specified path
@@ -34,7 +34,7 @@ class FilePath < String
 
   # Returns file path as in File.dirname but of FilePath type
   def dirname
-    FilePath.new(File.dirname(self))
+    self.class.new(File.dirname(self))
   end
 
   # Returns string with basename like in File.basename

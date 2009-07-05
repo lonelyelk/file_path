@@ -24,7 +24,7 @@ describe FilePath do
   end
   
   it "should work with lists" do
-    (FilePath.new/".."/"**"/"*.*").list.should == Dir.glob(File.join(File.dirname(__FILE__), "..", "**", "*.*")).map{ |p| File.expand_path(p)}
+    (FilePath.new/".."/"**"/"*.*").list.should == Dir.glob(File.join(File.dirname(__FILE__), "..", "**", "*.*")).map{ |p| FilePath.new(p)}
   end
   
   it "should correctly verify inclusion of filepath" do
