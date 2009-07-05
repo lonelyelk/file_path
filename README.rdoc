@@ -1,3 +1,9 @@
 == FilePath
 
 Utility for comfortable operation with file paths
+
+Example:
+  spec_dir = "spec"
+  spec_files = (FilePath.new/spec_dir/"*_spec.rb").list
+  
+  (FilePath.new("/some")/"dir"/"some"/"file").exist?
