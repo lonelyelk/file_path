@@ -1,0 +1,3 @@
+== FilePath
+
+Utility for convinient operation with file paths
