@@ -16,6 +16,11 @@ class FilePath < String
     FilePath.new(expand(File.join(self, other)))
   end
 
+  # Returns <code>true</code> if file path is a wildcard
+  def wildcard?
+    include?("*") || include?("?")
+  end
+
   [:blockdev?, :chardev?, :directory?, :executable?, :executable_real?, :exist?,
     :file?, :grpowned?, :owned?, :pipe?, :readable?, :readable_real?, :setgid?,
     :setuid?, :size?, :socket?, :sticky?, :symlink?, :writable?, :writable_real?,

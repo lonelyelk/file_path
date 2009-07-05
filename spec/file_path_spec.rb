@@ -15,4 +15,10 @@ describe FilePath do
     FilePath.new("/some/dir").exist?.should == false
     # Should I really be testing it?
   end
+  
+  it "should recognize wildcard" do
+    (FilePath.new/"**"/"*.rb").wildcard?.should == true
+    (FilePath.new/"s?mefile.??").wildcard?.should == true
+    FilePath.current.wildcard?.should == false
+  end
 end
