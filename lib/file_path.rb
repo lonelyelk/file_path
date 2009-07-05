@@ -21,6 +21,12 @@ class FilePath < String
     include?("*") || include?("?")
   end
 
+  # Returns list of paths selected by wildcard or an array with one specified file
+  # if it exists
+  def list
+    Dir.glob(self)
+  end
+
   [:blockdev?, :chardev?, :directory?, :executable?, :executable_real?, :exist?,
     :file?, :grpowned?, :owned?, :pipe?, :readable?, :readable_real?, :setgid?,
     :setuid?, :size?, :socket?, :sticky?, :symlink?, :writable?, :writable_real?,
