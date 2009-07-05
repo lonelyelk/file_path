@@ -11,7 +11,7 @@ class FilePath < String
 
   # Joins string or filepath into new path
   # Example:
-  #   FilePath.new("somedir")/"other_dir"/"file"     => "somedir/other_dir/file"
+  #   FilePath.new("/somedir")/"other_dir"/"file"     => "/somedir/other_dir/file"
   def /(other)
     FilePath.new(expand(File.join(self, other)))
   end
