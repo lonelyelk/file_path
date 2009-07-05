@@ -14,7 +14,6 @@ describe FilePath do
     FilePath.current.file?.should == true
     FilePath.new("/some/dir").exist?.should == false
     # Should I really be testing it?
-    # And how do you include it in rdoc?
   end
   
   it "should recognize wildcard" do

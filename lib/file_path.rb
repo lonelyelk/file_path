@@ -1,3 +1,27 @@
+# Class FilePath is used for comfortable work with file paths.
+#
+# Following File class methods are implemented:
+#   filepath.blockdev?        => File.blockdev?(filepath)
+#   filepath.chardev?         => File.chardev?(filepath)
+#   filepath.directory?       => File.directory?(filepath)
+#   filepath.executable?      => File.executable?(filepath)
+#   filepath.executable_real? => File.executable_real?(filepath)
+#   filepath.exist?           => File.exist?(filepath)
+#   filepath.file?            => File.file?(filepath)
+#   filepath.grpowned?        => File.grpowned?(filepath)
+#   filepath.owned?           => File.owned?(filepath)
+#   filepath.pipe?            => File.pipe?(filepath)
+#   filepath.readable?        => File.readable?(filepath)
+#   filepath.readable_real?   => File.readable_real?(filepath)
+#   filepath.setgid?          => File.setgid?(filepath)
+#   filepath.setuid?          => File.setuid?(filepath)
+#   filepath.size?            => File.size?(filepath)
+#   filepath.socket?          => File.socket?(filepath)
+#   filepath.sticky?          => File.sticky?(filepath)
+#   filepath.symlink?         => File.symlink?(filepath)
+#   filepath.writable?        => File.writable?(filepath)
+#   filepath.writable_real?   => File.writable_real?(filepath)
+#   filepath.zero?            => File.zero?(filepath)
 class FilePath < String
   # Creates new file path. If <code>path</code> param is not given, dirname of
   # current file is used
@@ -27,7 +51,7 @@ class FilePath < String
     Dir.glob(self).map{ |p| self.class.new(p)}
   end
 
-  # Returns true if wildcard selection includes specified path
+  # Returns <code>true</code> if wildcard selection includes specified path
   def include_path?(filepath)
     list.include?(expand(filepath))
   end
