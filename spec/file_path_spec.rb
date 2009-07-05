@@ -26,4 +26,9 @@ describe FilePath do
   it "should work with lists" do
     (FilePath.new/".."/"**"/"*.*").list.should == Dir.glob(File.join(File.dirname(__FILE__), "..", "**", "*.*")).map{ |p| File.expand_path(p)}
   end
+  
+  it "should correctly verify inclusion of filepath" do
+    (FilePath.new/"*.rb").include_path?(FilePath.current).should == true
+    (FilePath.new/"*.rb").include_path?(__FILE__).should == true
+  end
 end

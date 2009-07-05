@@ -27,6 +27,11 @@ class FilePath < String
     Dir.glob(self)
   end
 
+  # Returns true if wildcard selection includes specified path
+  def include_path?(filepath)
+    list.include?(expand(filepath))
+  end
+
   [:blockdev?, :chardev?, :directory?, :executable?, :executable_real?, :exist?,
     :file?, :grpowned?, :owned?, :pipe?, :readable?, :readable_real?, :setgid?,
     :setuid?, :size?, :socket?, :sticky?, :symlink?, :writable?, :writable_real?,
