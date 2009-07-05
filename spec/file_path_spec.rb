@@ -35,4 +35,9 @@ describe FilePath do
   it "should return dirname" do
     FilePath.current.dirname.should == FilePath.new
   end
+  
+  it "should return basename" do
+    FilePath.current.basename.should == "file_path_spec.rb"
+    FilePath.current.basename(".rb").should == "file_path_spec"
+  end
 end

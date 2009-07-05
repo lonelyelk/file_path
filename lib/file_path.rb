@@ -37,6 +37,11 @@ class FilePath < String
     FilePath.new(File.dirname(self))
   end
 
+  # Returns string with basename like in File.basename
+  def basename(suffix = "")
+    File.basename(self, suffix)
+  end
+
   [:blockdev?, :chardev?, :directory?, :executable?, :executable_real?, :exist?,
     :file?, :grpowned?, :owned?, :pipe?, :readable?, :readable_real?, :setgid?,
     :setuid?, :size?, :socket?, :sticky?, :symlink?, :writable?, :writable_real?,
