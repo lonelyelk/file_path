@@ -32,6 +32,11 @@ class FilePath < String
     list.include?(expand(filepath))
   end
 
+  # Returns file path as in File.dirname but of FilePath type
+  def dirname
+    FilePath.new(File.dirname(self))
+  end
+
   [:blockdev?, :chardev?, :directory?, :executable?, :executable_real?, :exist?,
     :file?, :grpowned?, :owned?, :pipe?, :readable?, :readable_real?, :setgid?,
     :setuid?, :size?, :socket?, :sticky?, :symlink?, :writable?, :writable_real?,

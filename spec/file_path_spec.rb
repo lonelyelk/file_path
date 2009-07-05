@@ -31,4 +31,8 @@ describe FilePath do
     (FilePath.new/"*.rb").include_path?(FilePath.current).should == true
     (FilePath.new/"*.rb").include_path?(__FILE__).should == true
   end
+  
+  it "should return dirname" do
+    FilePath.current.dirname.should == FilePath.new
+  end
 end
