@@ -16,6 +16,17 @@ class FilePath < String
     FilePath.new(expand(File.join(self, other)))
   end
 
+  [:blockdev?, :chardev?, :directory?, :executable?, :executable_real?, :exist?,
+    :file?, :grpowned?, :owned?, :pipe?, :readable?, :readable_real?, :setgid?,
+    :setuid?, :size?, :socket?, :sticky?, :symlink?, :writable?, :writable_real?,
+    :zero?].each do |mthd|
+      class_eval <<-RUBY
+        def #{mthd}
+          File.#{mthd}(self)
+        end
+      RUBY
+    end
+
   class << self
     # Expanded path to current file: File.expand_path(__FILE__)
     def current
