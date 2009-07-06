@@ -13,7 +13,7 @@ end
 desc "Generate RDoc"
 Rake::RDocTask.new(:rdoc) do |rdoc|
   rdoc.rdoc_files.include(Dir.glob(File.join("lib", "*.rb"))).
-                  include("README.rdoc")
+                  include("README.rdoc", "LICENSE")
   rdoc.main = "README.rdoc"
   rdoc.rdoc_dir = "rdoc"
   rdoc.options << "--charset=UTF-8"
