@@ -1,9 +1,19 @@
-== FilePath
+= FilePath
+
+== Summary
 
 Utility for comfortable operation with file paths
 
-Example:
-  spec_dir = "spec"
-  spec_files = (FilePath.new/spec_dir/"*_spec.rb").list
+== Installation
+
+  sudo gem install lonelyelk-file_path
   
-  (FilePath.new("/some")/"dir"/"some"/"file").exist?
+== Usage
+
+  require "rubygems"
+  require "file_path"
+  
+  spec_dir = "spec"
+  spec_files = (FilePath.new / spec_dir / "*_spec.rb").list  #=> an array
+  
+  (FilePath.new("/some") / "dir" / "some" / "file").exist?

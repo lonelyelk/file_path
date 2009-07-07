@@ -4,8 +4,8 @@ Gem::Specification.new do |s|
     s.name = "file_path"
     s.summary = "FilePath is a ruby class to simplify file path interaction"
 
-    s.version = "0.1"
-    s.date = "2009-07-06"
+    s.version = "0.2"
+    s.date = "2009-07-07"
     s.author = "Sergey Kruk"
     s.email = "sergey.kruk@gmail.com"
     s.homepage = "http://github.com/lonelyelk/file_path"
